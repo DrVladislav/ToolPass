@@ -8,91 +8,10 @@
     <title>ToolPass</title>
 
     {{--Styles--}}
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
-    <style>
-        .col > a {
-            color: #000;
-        }
-
-        .col > a:hover {
-            color: #557dbf;
-        }
-
-        .logo {
-            margin: 1em auto;
-        }
-
-        body {
-            background-color: #f5f5f5;
-        }
-    </style>
+    <link rel="stylesheet" href="/css/materialize.min.css">
+    <link rel="stylesheet" href="/css/app.css">
 </head>
 <body>
-
-
-{{--MODAL SIGNUP--}}
-<div id="sign_up" class="modal">
-    <div class="modal-content">
-
-        <h4>Регистрация</h4>
-        <br>
-
-        <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
-            {{ csrf_field() }}
-
-            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                <div class="input-field">
-                    <input id="name" type="text" class="validate" name="name" value="{{ old('name') }}"
-                           required>
-                    <label for="name" data-error="не верно" data-success="верно">Логин</label>
-                    @if ($errors->has('name'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('name') }}</strong>
-                        </span>
-                    @endif
-                </div>
-            </div>
-
-            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                <div class="input-field">
-                    <input id="email" type="email" class="validate" name="email" value="{{ old('email') }}"
-                           required>
-                    <label for="email" data-error="не верно" data-success="верно">E-Mail адресс</label>
-                    @if ($errors->has('email'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('email') }}</strong>
-                        </span>
-                    @endif
-                </div>
-            </div>
-
-            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                <div class="input-field">
-                    <input id="password" type="password" class="validate" name="password" required>
-                    <label for="password">Пароль</label>
-                    @if ($errors->has('password'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('password') }}</strong>
-                        </span>
-                    @endif
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="input-field">
-                    <input id="password-confirm" type="password" class="validate" name="password_confirmation" required>
-                    <label for="password-confirm">Повторите пароль</label>
-                </div>
-            </div>
-
-            <div class="modal-footer">
-                <button type="submit" class="btn">
-                    Зарегистрировать
-                </button>
-            </div>
-        </form>
-    </div>
-</div>
 
 {{------LOGO-----}}
 <div class="logo center-align">
@@ -105,8 +24,7 @@
         <h5 class="center-align">Войдите чтобы пользоваться ToolPass</h5>
         <div class="forms">
             <div class="col l4 s12 offset-l4">
-
-                <div class="card-panel hoverable ">
+                <div class="card-panel hoverable">
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
                         <div class="form-group">
@@ -134,18 +52,15 @@
                                 @endif
                             </div>
                         </div>
-
-                        <div class="modal-footer">
-                            <button type="submit" class="btn" style="width: 100%;">
-                                Войти
-                            </button>
-                        </div>
+                        <button type="submit" class="btn btn_submit">
+                            Войти
+                        </button>
                     </form>
                 </div>
             </div>
 
             <div class="col l4 s12 offset-l4">
-                <a href="{{url('/registration')}}">
+                <a href="{{url('/registration')}}" class="card-hover">
                     <div class="card-panel hoverable center-align">
                         <h5>Создать аккаунт</h5>
                     </div>
@@ -158,10 +73,5 @@
 <!--  scripts -->
 <script type="text/javascript" src="/js/app.js"></script>
 <script type="text/javascript" src="/js/materialize.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $('.modal').modal();
-    });
-</script>
 </body>
 </html>

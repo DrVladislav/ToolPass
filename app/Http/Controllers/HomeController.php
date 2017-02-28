@@ -24,6 +24,6 @@ class HomeController extends Controller
 
     public function registration()
     {
-        return view('');
+        return view('auth.registration');
     }
 }

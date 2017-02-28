@@ -12,8 +12,18 @@
 */
 Auth::routes();
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
 
-Route::get('/home', 'HomeController@index');
+Route::get('/registration', 'HomeController@registration');
+
+Route::get('/home', 'HomeController@home');
+
+Route::group(['prefix' => '/toolpass'], function () {
+    Route::get('/test', function(){
+        return('its work');
+    });
+    //    Route::post('/create', ''); => Auth::id()->request('login', pass, others)
+    //    Route::put('/update','');
+    //    Route::delete('/delete','');
+    //    localhost/toolpass/create ->
+});
