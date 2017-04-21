@@ -18,12 +18,14 @@ Route::get('/registration', 'HomeController@registration');
 
 Route::get('/home', 'HomeController@home');
 
+Route::get('/service/{service_id}', 'HomeController@show');
+
 Route::group(['prefix' => '/toolpass'], function () {
-    Route::get('/test', function(){
-        return('its work');
-    });
-    //    Route::post('/create', ''); => Auth::id()->request('login', pass, others)
-    //    Route::put('/update','');
-    //    Route::delete('/delete','');
-    //    localhost/toolpass/create ->
+
+    Route::post('/create', 'ToolPassController@create');
+
+    Route::put('/update', 'ToolPassController@update');
+
+    Route::delete('/delete', 'ToolPassController@delete');
+
 });
