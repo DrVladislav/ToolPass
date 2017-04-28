@@ -18,7 +18,7 @@ Route::get('/registration', 'HomeController@registration');
 
 Route::get('/home', 'HomeController@home');
 
-Route::get('/service/{service_id}', 'HomeController@show');
+Route::get('/service/{service_id}', 'ToolPassController@show');
 
 Route::group(['prefix' => '/toolpass'], function () {
 
