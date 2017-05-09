@@ -24,8 +24,8 @@ Route::group(['prefix' => '/toolpass'], function () {
 
     Route::post('/create', 'ToolPassController@create');
 
-    Route::put('/update', 'ToolPassController@update');
+    Route::put('/update/{id}', 'ToolPassController@update');
 
-    Route::delete('/delete', 'ToolPassController@delete');
+    Route::delete('/delete/{id}', 'ToolPassController@delete');
 
 });
