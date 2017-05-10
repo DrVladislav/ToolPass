@@ -12,42 +12,41 @@
 <div class="container">
     <div id="create" class="modal modal-fixed-footer">
 
-        <form id="form">
+        <form method="POST" action="{{url('/toolpass/create')}}">
             <div class="modal-content">
                 <h4>Создание сервиса</h4>
 
                 {{ csrf_field() }}
 
                 <div class="input-field">
-                    <input id="service" type="text" class="validate" name="service" value="{{ old('service') }}">
-                    <label for="service" data-error="не верно" data-success="верно"> Название сервиса</label>
+                    <input id="service" type="text" class="validate service" name="service">
+                    <label for="service" data-error="не верно" data-success="верно">Название сервиса</label>
                 </div>
 
+                @if($errors->has('service'))
+                    <p class="center-align red-text">{{$errors->first('service')}}</p>
+                @endif
+
                 <div class="input-field">
-                    <input id="login" type="text" class="validate" name="login" value="{{ old('login') }}">
+                    <input id="login" type="text" class="validate login" name="login">
                     <label for="login" data-error="не верно" data-success="верно">Логин</label>
                 </div>
 
                 <div class="input-field">
-                    <input id="email" type="text" class="validate" name="email" value="{{ old('email') }}">
+                    <input id="email" type="text" class="validate email" name="email">
                     <label for="email" data-error="не верно" data-success="верно">E-Mail адресс</label>
                 </div>
 
                 <div class="input-field">
-                    <input id="password" type="password" class="validate" name="password">
+                    <input id="password" type="password" class="validate password" name="password">
                     <label for="password">Пароль</label>
                 </div>
 
-                {{-- This container for additional fields --}}
                 <div class="row">
-                    <div id="container">
-
+                    <div class="input-field col s12 m12 l12">
+                        <textarea id="area" class="materialize-textarea" name="others"></textarea>
+                        <label for="area">Заметки</label>
                     </div>
-                </div>
-
-                <div class="center-align">
-                    <a class="waves-effect waves-light btn" id="create-row">Создать дополнительное поле</a>
-                    <a class="waves-effect waves-light btn red" id="delete-row">Удалить дополнительное поле</a>
                 </div>
             </div>
 
