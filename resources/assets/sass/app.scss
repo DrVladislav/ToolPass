@@ -13,9 +13,17 @@ body {
   width: 100%;
 }
 
-.card-hover{
-  color : #000;
+.card-hover {
+  color: #000;
   &:hover {
-    color: $hover_link;
+    color: $main_color;
   }
+}
+
+.page-footer {
+  background-color: $main_color;
+}
+
+nav {
+  background-color: $main_color;
 }
