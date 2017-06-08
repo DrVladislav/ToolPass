@@ -48,7 +48,7 @@
 
                     <h5 class="center-align">Войдите чтобы пользоваться ToolPass</h5>
 
-                    <div class="card-panel hoverable">
+                    <div class="card-panel">
                         <form method="POST" action="{{ route('login') }}">
                             {{ csrf_field() }}
 
@@ -81,7 +81,7 @@
                     </div>
 
                     <a href="{{url('/registration')}}" class="card-hover">
-                        <div class="card-panel hoverable center-align">
+                        <div class="card-panel center-align">
                             <h5>Создать аккаунт</h5>
                         </div>
                     </a>
